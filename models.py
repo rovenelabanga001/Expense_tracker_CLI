@@ -26,6 +26,9 @@ class User(Base):
         return f"User(id: '{self.id}', name: '{self.name}', email:'{self.email}')"
 
 class Transaction(Base):
+
+    __tablename__ = 'transactions'
+    
     id = Column(Integer(), primary_key = True)
     transaction_type = Column(String(), nullable = False)
     category = Column(String(), nullable = False)
@@ -36,7 +39,7 @@ class Transaction(Base):
     user = relationship("User", back_populates = "transactions")
 
     __table_args__ = (
-        CheckConstraint("amount > 0", name = "positive_amount") #ensures positive amount
+        CheckConstraint("amount > 0", name="positive_amount"),  # Ensures positive amount
     )
 
     def __init__(self, transaction_type, category, amount, date = None):
