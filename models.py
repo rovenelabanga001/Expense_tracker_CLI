@@ -28,7 +28,7 @@ class User(Base):
 class Transaction(Base):
 
     __tablename__ = 'transactions'
-    
+
     id = Column(Integer(), primary_key = True)
     transaction_type = Column(String(), nullable = False)
     category = Column(String(), nullable = False)
@@ -42,7 +42,7 @@ class Transaction(Base):
         CheckConstraint("amount > 0", name="positive_amount"),  # Ensures positive amount
     )
 
-    def __init__(self, transaction_type, category, amount, date = None):
+    def __init__(self, transaction_type, category, amount, user_id,date = None, ):
         if not transaction_type or not isinstance(transaction_type, str):
             raise ValueError("Transaction type must be a non empty string")
         if transaction_type not in ["income", "expense"]:
@@ -53,11 +53,14 @@ class Transaction(Base):
             raise ValueError("Amount must be an integer")
         if amount <= 0:
             raise ValueError("Amount must be greater than 0")
+        if not isinstance(user_id, int) or user_id <= 0:
+            raise ValueError("User ID must be a positive integer")
 
 
         self.transaction_type = transaction_type
         self.category = category
         self.amount = amount
+        self.user_id = user_id
         self.date = date or date.today() #defaults to today if date is not provided
 
     def __repr__(self):
