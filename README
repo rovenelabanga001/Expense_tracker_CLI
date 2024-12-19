@@ -1,0 +1,90 @@
+# Expense Tracker CLI
+
+A command-line interface (CLI) application for managing personal transactions. This app allows users to add, update, view, and summarize transactions, as well as search for transactions by type, category, user, and more.
+
+## Features
+- Add transactions (income or expense)
+- Update existing transactions
+- Search transactions by type, user, and ID
+- Generate a summary of transactions by user (total income, expenses, and net balance)
+- View user information and transactions by user ID or name
+
+
+
+## Installation
+
+### 1. Clone the repository
+
+```bash
+git clone git@github.com:rovenelabanga001/Expense_tracker_CLI.git
+```
+
+### 2. Install my-project with pipenv
+
+```bash
+  cd Expense_tracker_CLI
+  pipenv install 
+```
+### 3. Set up a virtual environment
+```bash
+pipenv shell
+```
+### Usage
+### Running the application
+```bash
+python cli.python
+```
+### The app will display a menu with available options. You can choose from
+- Create User
+- Update User
+- Delete User
+- Create Transaction
+- Update Transaction
+- Delete Transaction
+- Assign Transaction to User
+- Search for user by name
+- Search for user by ID
+- List Users
+- List Transactions
+- View Transactions by User
+- Search for transactions by type
+- Search for transaction by ID
+- View user's transaction summary
+- Exit
+
+### Project Structure
+```
+Expense_tracker_CLI/
+├── migrations/
+    ├──versions/
+    ├──env.py
+├── alembic.ini
+├── cli.py
+├── models.py
+└── README.md
+
+```
+**cli.py**  
+Contains the main CLI application logic. It handles user input, interacts with the database, and manages the flow of the program.
+
+**models.py**  
+Defines the database models (Transaction and User). It also includes relationships and data validation for transactions and users.
+
+
+### **License**
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).  
+You are free to use, modify, and distribute this software, provided that proper attribution is given to the original author(s).
+
+---
+
+### **Dependencies**
+
+This project relies on the following Python packages:  
+
+- **[SQLAlchemy](https://www.sqlalchemy.org/):** A powerful and flexible SQL toolkit and Object-Relational Mapping (ORM) library for Python.  
+- **[Alembic](https://alembic.sqlalchemy.org/):** A database migration tool for managing version control of your SQLAlchemy models.
+
+## Authors
+
+- [Rovenel Abanga](https://github.com/rovenelabanga001)
